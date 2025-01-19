@@ -24,13 +24,13 @@ const settingsCardStyle = StyleSheet.create({
         backgroundColor: "white",
         position: "absolute",
         top: "5%",
-        left: "20%",
+        left: "15%",
         alignItems: "center",
         justifyContent: "center",
         padding: 10,
         elevation: 5,
         borderRadius: 10,
-        width: "70%"
+        width: "60%"
     },
 
     sliderContainer: {

@@ -284,8 +284,8 @@ export const mainStyle = StyleSheet.create({
 
     settingsButton: {
         position: "absolute",
-        top: "6%",
-        left: "4%",
+        bottom: "3%",
+        right: "2%",
         paddingVertical: 12,
         paddingHorizontal: 12,
     },
