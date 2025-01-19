@@ -3,9 +3,15 @@
 import { useEffect, useState } from "react";
 import { View, Pressable, StyleSheet } from "react-native";
 
+// Update 
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "./firebaseConfig"; // Import Firebase configuration
+
 /* GLOBALNI STILOVI I PODACI */
 import { styles } from "./styles";
-import { questions } from "./data/questions";
+
+// Update
+// import { questions } from "./data/questions";
 
 /* EXPO-SPECIFIC BIBLIOTEKE */
 import { StatusBar } from "expo-status-bar";
@@ -32,6 +38,34 @@ const Main = () => {
     const [answeredCount, setAnsweredCount] = useState(Array(4).fill(0));               // Koliko je pitanja odgovoreno po svakom mogucem ekranu
     const [completedScreens, setCompletedScreens] = useState(Array(4).fill(false));     // Koliko je ekrana zavrsilo svoju rundu
     const [allScreensCompleted, setAllScreensCompleted] = useState(false);              // Jesu li svi ekrani zavrsili
+
+    // Update
+    const [questions, setQuestions] = useState([]); // Initialize as empty array
+
+    useEffect(() => {
+        // fetch questions from Firebase
+        const fetchQuestions = async () => {
+          try {
+            console.log("Fetching questions...");
+            const questionsCollection = collection(db, "questions");
+            console.log("Questions collection reference:", questionsCollection);
+            const querySnapshot = await getDocs(collection(db, "questions"));
+            const questionsList = querySnapshot.docs.map((doc) => ({
+              id: doc.id,
+              ...doc.data(),
+            }));
+
+            console.log("Fetched questions:", questionsList);
+            setQuestions(questionsList); // update state with fetched questions
+          } catch (error) {
+            console.error("Error fetching questions:", error);
+          }
+        };
+    
+        fetchQuestions();
+      }, []);
+
+
 
     /* FUNKCIJE GLAVNOG EKRANA */
 
