@@ -2,14 +2,14 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyB3SLH11SgivxjgA33Ch0XmEQQvvI66-ZI",
-  authDomain: "react-native-quiz-app-9a18a.firebaseapp.com",
-  projectId: "react-native-quiz-app-9a18a", // Required for Firestore
-  storageBucket: "react-native-quiz-app-9a18a.appspot.com",
-  messagingSenderId: "332002883069",
-  appId: "1:332002883069:web:03f65ec3ac72c248345594",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
 };
 
-// Initialize Firebase and Firestore
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);

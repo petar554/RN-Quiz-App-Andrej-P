@@ -12,6 +12,7 @@
     "@expo-google-fonts/comfortaa": "^0.2.3",
     "@expo/webpack-config": "^19.0.0",
     "@react-native-community/slider": "4.4.2",
+    "dotenv": "^16.4.7",
     "expo": "~49.0.15",
     "expo-app-loading": "^2.1.1",
     "expo-font": "~11.4.0",
@@ -22,6 +23,7 @@
     "react-dom": "18.2.0",
     "react-native": "0.73.0",
     "react-native-device-info": "^14.0.1",
+    "react-native-dotenv": "^3.4.11",
     "react-native-web": "~0.19.6"
   },
   "devDependencies": {
