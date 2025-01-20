@@ -7,6 +7,9 @@ import { styles } from "../styles";
 
 /* KOMPONENTE */
 import NameInput from "../components/NameInput";
+import Logo from '../assets/logo.svg';
+import GroupIcon from '../assets/group.svg';
+import SecGroupIcon from '../assets/groupSecondary.svg';
 
 const Lobby = ({ players, setStartGame, handlePlayerNameUpdate, canContinueToQuiz }) => {
   /* FUNKCIJE LOBBY EKRANA */
@@ -29,10 +32,10 @@ const Lobby = ({ players, setStartGame, handlePlayerNameUpdate, canContinueToQui
   return (
     <View style={lobbyStyle.container}>
       {/* Logo in the top-left corner */}
-      <Image source={require("../assets/logo.svg")} style={lobbyStyle.logo} />
+      <Logo width={40} height={40} style={lobbyStyle.logo}/>
 
       {/* Secondary Group Icon in the top-right corner */}
-      <Image source={require("../assets/groupSecondary.svg")} style={lobbyStyle.secondaryGroupIcon} />
+      <SecGroupIcon width={170} height={170} style={lobbyStyle.secondaryGroupIcon}/>
 
       <View style={lobbyStyle.textWrapper}>
         <Text style={{ ...lobbyStyle.baseText, ...lobbyStyle.title }}>DOBRODOŠLI!</Text>
@@ -56,8 +59,7 @@ const Lobby = ({ players, setStartGame, handlePlayerNameUpdate, canContinueToQui
       />
 
       {/* Group Icon in the bottom-left corner */}
-      <Image source={require("../assets/group.svg")} style={lobbyStyle.groupIcon} />
-
+      <GroupIcon width={240} height={240} style={lobbyStyle.groupIcon}/>
     </View>
   );
 };
@@ -95,24 +97,18 @@ export const lobbyStyle = StyleSheet.create({
     position: "absolute",
     top: 40,
     left: 20,
-    width: 50,
-    height: 50,
     resizeMode: "contain",
   },
   secondaryGroupIcon: {
     position: "absolute",
-    top: -20,
+    top: 0,
     right: 20,
-    width: 200,
-    height: 200,
     resizeMode: "contain",
   },
   groupIcon: {
     position: "absolute",
-    bottom: -20,
+    bottom: 0,
     left: 20,
-    width: 250,
-    height: 250,
     resizeMode: "contain",
   },
 });
